@@ -1,0 +1,26 @@
+SECOM STATISTICAL ROBUSTNESS AND SENSITIVITY REPORT
+Student: Solis | Student ID: TUPM-26-1227
+Random Seed: 261227 | Bootstrap Repetitions: 270
+Selected Features: Feature_019, Feature_020, Feature_050, Feature_075, Feature_204
+Difference = mean(Fail) - mean(Pass); strategies: available-case (AC) and median imputation (MI).
+
+Feature results:
+- Feature_019: AC diff 0.0269 [0.0127, 0.0451] rank 3 | MI diff 0.0267 [0.0121, 0.0470] rank 3
+- Feature_020: AC diff 0.0016 [-0.0016, 0.0046] rank 5 | MI diff 0.0016 [-0.0010, 0.0045] rank 5
+- Feature_050: AC diff -0.5266 [-1.9621, 1.0532] rank 2 | MI diff -0.5260 [-1.9953, 1.0093] rank 2
+- Feature_075: AC diff 0.0025 [-0.0030, 0.0087] rank 4 | MI diff 0.0025 [-0.0033, 0.0099] rank 4
+- Feature_204: AC diff 68.6934 [-48.0231, 276.5606] rank 1 | MI diff 68.8061 [-47.8281, 283.4462] rank 1
+
+Interpretation:
+- Features whose difference sign changed between strategies: 0.
+- Features whose ranking changed between strategies: 0.
+- Largest change in mean difference: Feature_204 (0.1127).
+- Intervals excluding zero: AC 1 (19); MI 1 (19).
+- Reproducibility (same seed, repeated run): PASSED.
+
+Notes:
+- Intervals are percentile 95% bootstrap intervals from stratified resampling with replacement.
+- Median imputation uses full-dataset medians and keeps every record; available-case uses fewer values per feature.
+- A CI that includes zero means the Pass/Fail difference is not clearly separated from zero for that strategy.
+- Mean differences are in raw feature units, so rankings by size reflect feature scale as well as effect.
+- Group differences describe association and do not establish failure causes.
